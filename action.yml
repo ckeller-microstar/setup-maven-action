@@ -60,6 +60,10 @@ inputs:
     default: 'zulu'
     required: false
 
+  java-jdkFile:
+    description: 'Java JDK compressed file location'
+    required: false
+
   # cache
   cache-enabled:
     description: 'Enable cache'
@@ -145,6 +149,7 @@ runs:
         overwrite-settings: false
         java-version: '${{ inputs.java-version }}'
         distribution: '${{ inputs.java-distribution }}'
+        jdkFile: '${{ inputs.java-jdkFile }}'
 
     - uses: actions/cache@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4.1.2
       if: inputs.cache-enabled == 'true'
